@@ -15,7 +15,10 @@ SECRET_KEY = 'django-insecure-dosdirsbt$w7l^(stbva2fyk02dfnkp8q-tiuz+@2c0we16g-*
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'africonnect-uganda-ltd.up.railway.app']
+<<<<<<< HEAD
 # africonnect-uganda-ltd.up.railway.app
+=======
+>>>>>>> 4d06ce3a1b73aa641a9c105f672f0f24e17f6aed
 
 CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://africonnect-uganda-ltd.up.railway.app']
 
