@@ -1,0 +1,124 @@
+{% extends "inherit_from/main.html" %} {% load static %} {% block content %}
+<title>Create Personal Account</title>
+{% load crispy_forms_tags %}
+<div class="container py-5 mt-5">
+  {% include "copyfrom/navbar.html" %} {% include "copyfrom/alert.html" %}
+  <div class="mx-auto" style="width: 400px">
+    <form action="" method="post" autocomplete="off">
+      <h4 style="color: green" class="mb-3">Create Personal Account</h4>
+      {% csrf_token %}
+      <div class="row">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-floating mb-3 px-2">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                name="email"
+              />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-3 px-2">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                name="user_name"
+              />
+              <label for="floatingInput">Username</label>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    name="surname"
+                  />
+                  <label for="floatingInput">Surname</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    name="given_name"
+                  />
+                  <label for="floatingInput">Other Name</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-floating mb-3 px-2">
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="telephone_number"
+                />
+                <label for="floatingInput">Telephone Number</label>
+              </div>
+              <div class="form-floating mb-3 px-2">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="date_of_birth"
+                />
+                <label for="floatingInput">Date of Birth</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-floating mb-3 px-2">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    name="pass1"
+                  />
+                  <label for="floatingInput">Enter Password</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-floating mb-3 px-2">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    name="pass2"
+                  />
+                  <label for="floatingInput">Confirm Password</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-sm-4 mb-2">
+            <button type="submit" class="btn btn-success mb-3">Register</button>
+          </div>
+          <div class="col-lg-6 col-sm-6 mb-2">
+            <a href="{% url 'signin' %}" class="text-decoration-none"
+              >Already member</a
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% include 'copyfrom/footer.html' %} {% endblock %}
