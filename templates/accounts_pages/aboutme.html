@@ -1,5 +1,5 @@
 {% extends 'inherit_from/main.html' %} {% load static %} {% block content %}
-<title>My Profile</title>
+<title>{{object.surname}}'s Profile</title>
 
 {% include 'copyfrom/navbar.html' %}
 
@@ -50,7 +50,7 @@
         <a href="{% url 'myProfile' user.id %}" class="btn btn-secondary"
           ><i class="bi bi-arrow-return-left"></i> My Profile(back)</a
         >
-        <a href="{% url 'home' %}" class="btn btn-secondary"
+        <a href="{% url 'home' %}" class="btn btn-secondary mt-2"
           ><i class="bi bi-arrow-return-left"></i> Home(back)</a
         >
       </form>

@@ -17,14 +17,18 @@
       fugit praesentium totam assumenda quis distinctio iste libero tempore!
     </p>
     <!--Here-->
-    <a class="btn btn-success mb-3 w-25" href="{% url 'choose-cv' object.id %}"
-      >See What to Add</a
-    >
-    <a
-      class="btn btn-success ms-2 mb-3 w-25"
-      href="{% url 'preview-cv' object.id %}"
-      >Preview</a
-    >
+    <p>
+      <a
+        class="btn btn-success mb-3 w-25"
+        href="{% url 'choose-cv' object.id %}"
+        >See What to Add</a
+      >
+      <a
+        class="btn btn-success ms-2 mb-3 w-25"
+        href="{% url 'preview-cv' object.id %}"
+        >Preview</a
+      >
+    </p>
   </div>
   <div class="row">
     <div class="col-4">
