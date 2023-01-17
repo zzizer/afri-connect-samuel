@@ -14,9 +14,10 @@ SECRET_KEY = 'django-insecure-dosdirsbt$w7l^(stbva2fyk02dfnkp8q-tiuz+@2c0we16g-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'africonnect_uganda_ltd.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'africonnect-uganda-ltd.up.railway.app']
+# africonnect-uganda-ltd.up.railway.app
 
-CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://africonnect_uganda_ltd.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://africonnect-uganda-ltd.up.railway.app']
 
 # Application definition
 
