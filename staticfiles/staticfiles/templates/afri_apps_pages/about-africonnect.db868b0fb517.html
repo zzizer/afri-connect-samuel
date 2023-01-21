@@ -1,0 +1,228 @@
+{% extends 'inherit_from/main.html' %} {% load static %} {% block content %}
+<title>About AfriConnect</title>
+{% include 'copyfrom/navbar.html' %}
+
+<style>
+  .card {
+    transition: all 0.3s;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .image_Afri {
+    transition: all 0.3s;
+    width: 100%;
+  }
+  .image_Afri:hover {
+    transform: scale(1.09);
+  }
+  .heading {
+    color: green;
+  }
+</style>
+
+<div class="container py-5">
+  <!--Brief Introduction-->
+  <div class="row mt-5">
+    {% include "copyfrom/alert.html" %}
+    <div class="col-lg-4">
+      <img
+        class="image_Afri rounded py-lg-4"
+        src="{% static 'app_images/logo.jpg' %}"
+        alt="Logo"
+      />
+    </div>
+    <div class="col-lg-8">
+      <h4 class="heading">AfriConnect?</h4>
+      <p>
+        AfriConnect is an online free plattform that gives companies and
+        individuals, an opportunity to interact together in terms of Employment.
+        It was designed to make employment better, fair, easy and Time Saving.
+      </p>
+      <p>
+        Companies can easily add employment opportunities, schedule interviews
+        virtually for the candidates and do meet thier specifications. If a
+        company add an job opportunities, and individuals manage applying, the
+        company has access to view, ealuate and monitor the academic transcripts
+        of those individuals.
+      </p>
+      <p>
+        Individuals can can view available job opportunities across the Globe,
+        save and monitor their academic transcripts as well. An individual,
+        after completion of the requirements, can automatically generate a
+        Cirriculum Vitae, application Letters, Resume and so many Others.
+      </p>
+      <p>
+        For more Information, Refer to the
+        <a
+          href="#"
+          class="heading text-decoration-none"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          >Terms and Conditions</a
+        >
+        {% include 'copyfrom/terms.html' %}
+      </p>
+    </div>
+  </div>
+  <!--Services Section-->
+  <div class="row gy-4 my-4 mt-4">
+    <h4 class="heading text-center mb-3">Services Offered</h4>
+    {% for service in services %}
+    <div class="col-md-4 col-sm-6 col-lg-4">
+      <div class="card w-lg-75 mb-4">
+        <img
+          src="{{service.imageURL}}"
+          class="card-img-top"
+          alt="{{service.title}}'s Photo"
+        />
+        <div class="card-body">
+          <h5 class="heading card-title">{{service.title}}</h5>
+          <p class="card-text">{{service.brief_description}}</p>
+          <a
+            href="{% url 'service-details' service.id %}"
+            class="btn btn-success"
+            >More</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <!--Accordian Starts-->
+  <div class="row mt-5">
+    <h4 class="heading text-center mb-3">Frequently Asked Questions</h4>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button text-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            How can I verify my Account..?
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is
+            shown by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button
+            class="accordion-button collapsed text-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            Are my Transcripts and Information safe with you..?
+          </button>
+        </h2>
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is
+            hidden by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed text-success"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Is AfriConnect verified by the government...?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is
+            hidden by default, until the collapse plugin adds the appropriate
+            classes that we use to style each element. These classes control the
+            overall appearance, as well as the showing and hiding via CSS
+            transitions. You can modify any of this with custom CSS or
+            overriding our default variables. It's also worth noting that just
+            about any HTML can go within the <code>.accordion-body</code>,
+            though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--News Feed Section-->
+<div class="row mt-5 text-center bg-success">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-6 mt-2">
+        <h2>Join our News Feed</h2>
+      </div>
+      <div class="col-lg-6 mt-1">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                name="email"
+              />
+              <label for="floatingInput">Email</label>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <input
+              type="submit"
+              class="btn btn-light mt-2 mb-2"
+              value="subscribe"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% include 'copyfrom/footer.html' %} {% endblock %}

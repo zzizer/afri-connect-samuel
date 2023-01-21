@@ -41,17 +41,17 @@ class Opportunity(models.Model):
             if (date.today().day <= self.deadline.day):
                 if (date.today().month <= self.deadline.month):
                     if (date.today().year <= self.deadline.year):
-                        status = 'Still Open'
+                        status_s = 'Still Open'
                     else:
-                        status = 'Closed'
-                    return status
+                        status_s = 'Closed'
+                    return status_s
                     
                 else:
-                    status = 'Closed'
-                return status
+                    status_s = 'Closed'
+                return status_s
             else:
-                status = 'Closed'
-            return status
+                status_s = 'Closed'
+            return status_s
     
     class Meta:
         verbose_name  = 'Opportunitie'

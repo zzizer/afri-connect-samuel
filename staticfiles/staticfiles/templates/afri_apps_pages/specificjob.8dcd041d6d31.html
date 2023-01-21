@@ -1,0 +1,65 @@
+{% extends "inherit_from/main.html" %} {% block content %}
+<title>Job Opportunity</title>
+{% include 'copyfrom/navbar.html' %}
+
+<style>
+  .heading {
+    color: green;
+  }
+</style>
+
+<div class="container py-5">
+  <div class="row mt-5">
+    <div class="col-lg-8 col-sm-8">
+      <h3 class="heading">{{object.job_title}}</h3>
+    </div>
+    <div class="col-lg-4 col-sm-4 text-lg-end">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+      <a href="{% url 'searching' %}" class="btn btn-secondary">Trending </a>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <h4 class="heading">Details</h4>
+    <p>
+      This job opportunity was uploaded by
+      <strong>{{object.uploaded_by.surname}}</strong> on {{object.uploaded_on}}.
+      It is located in {{object.uploaded_by.country}}, and successfully
+      Candidate(s) will be working from {{object.uploaded_by.surname}}
+      {{object.job_branch}} branch.
+    </p>
+  </div>
+  <div class="row">
+    <h4 class="heading">Description</h4>
+    <p>{{object.description}}</p>
+  </div>
+  <div class="row">
+    <h4 class="heading">Requirements and Qualifications</h4>
+    <div class="col-lg-12">
+      <ul>
+        {% for requirement in object.qualifications.all %}
+        <li>{{requirement}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <h4 class="heading">Disclaimer</h4>
+    <h6>Please Read and Understand...!</h6>
+    <p>
+      Be informed that the moment you apply for this Job, the Employer or
+      Company incharge of the opportunity will have access to see your Profile,
+      all academic documents, and all other relevenat documents including a copy
+      of your National ID and others. An automatic cirriculum Vitae, resume and
+      an application letter for this job will be forwarded to the Employer's
+      Email as well...
+    </p>
+  </div>
+  <div class="row">
+    <p>I have read and understood all the above conditions.</p>
+    <div class="col-lg-4">
+      <a href="#" class="btn btn-success">Apply Now</a>
+    </div>
+  </div>
+</div>
+{% include 'copyfrom/footer.html' %} {% endblock %}

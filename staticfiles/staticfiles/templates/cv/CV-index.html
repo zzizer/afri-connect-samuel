@@ -1,0 +1,300 @@
+{% extends "inherit_from/main.html" %} {% block content %}
+<hr />
+{% include 'copyfrom/navbar.html' %}
+<div class="container py-5">
+  <div class="row">
+    <h4>
+      My CV
+      <a class="fs-6 text-decoration-none" href="{% url 'myProfile' user.id %}"
+        >Back</a
+      >
+    </h4>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint explicabo
+      eaque possimus quasi atque ab fuga modi laudantium consequuntur nostrum
+      ipsam praesentium deserunt quas dicta, repellat repellendus eum sunt quod
+      nemo, odit ut reprehenderit! Omnis, hic minima delectus saepe sunt iure
+      fugit praesentium totam assumenda quis distinctio iste libero tempore!
+    </p>
+    <!--Here-->
+    <a class="btn btn-success mb-3 w-25" href="{% url 'choose-cv' object.id %}"
+      >See What to Add</a
+    >
+    <a
+      class="btn btn-success ms-2 mb-3 w-25"
+      href="{% url 'preview-cv' object.id %}"
+      >Preview</a
+    >
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a
+          class="list-group-item list-group-item-action active"
+          id="list-home-list"
+          data-bs-toggle="list"
+          href="#list-objective"
+          role="tab"
+          aria-controls="list-home"
+          >Objective</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-profile-list"
+          data-bs-toggle="list"
+          href="#list-skills"
+          role="tab"
+          aria-controls="list-profile"
+          >Skills</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-messages-list"
+          data-bs-toggle="list"
+          href="#list-education"
+          role="tab"
+          aria-controls="list-messages"
+          >Education Background</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-messages-list"
+          data-bs-toggle="list"
+          href="#list-leadership"
+          role="tab"
+          aria-controls="list-messages"
+          >Leadership Experience</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-messages-list"
+          data-bs-toggle="list"
+          href="#list-relevant"
+          role="tab"
+          aria-controls="list-messages"
+          >Relevant Docs</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-messages-list"
+          data-bs-toggle="list"
+          href="#list-working"
+          role="tab"
+          aria-controls="list-messages"
+          >Working Experience</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-messages-list"
+          data-bs-toggle="list"
+          href="#list-language"
+          role="tab"
+          aria-controls="list-messages"
+          >Languages Spoken</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-messages-list"
+          data-bs-toggle="list"
+          href="#list-hobbies"
+          role="tab"
+          aria-controls="list-messages"
+          >Hobbies</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          id="list-settings-list"
+          data-bs-toggle="list"
+          href="#list-reference"
+          role="tab"
+          aria-controls="list-settings"
+          >Reference</a
+        >
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="list-objective"
+          role="tabpanel"
+          aria-labelledby="list-home-list"
+        >
+          <h4>Objective</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a class="btn btn-primary" href="{% url 'add-objective' user.id %}"
+            >Add Objective</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-skills"
+          role="tabpanel"
+          aria-labelledby="list-profile-list"
+        >
+          <h4>Skills</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a class="btn btn-primary" href="{% url 'add-skills' user.id %}"
+            >Add Skills</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-education"
+          role="tabpanel"
+          aria-labelledby="list-messages-list"
+        >
+          <h4>Education Background</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a
+            class="btn btn-primary"
+            href="{% url 'add-education-background' user.id %}"
+            >Add Now</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-leadership"
+          role="tabpanel"
+          aria-labelledby="list-settings-list"
+        >
+          <h4>Leadership Experience</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a
+            class="btn btn-primary"
+            href="{% url 'add-leadership-skills' user.id %}"
+            >Add Now</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-relevant"
+          role="tabpanel"
+          aria-labelledby="list-settings-list"
+        >
+          <h4>Relevant Documents</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a
+            class="btn btn-primary"
+            href="{% url 'add-relevant-docs' user.id %}"
+            >Add Now</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-working"
+          role="tabpanel"
+          aria-labelledby="list-settings-list"
+        >
+          <h4>Working Experience</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a
+            class="btn btn-primary"
+            href="{% url 'add-work-experience' user.id %}"
+            >Add Now</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-language"
+          role="tabpanel"
+          aria-labelledby="list-settings-list"
+        >
+          <h4>Languages Spoken</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a class="btn btn-primary" href="{% url 'add-language' user.id %}"
+            >Add Language</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-hobbies"
+          role="tabpanel"
+          aria-labelledby="list-settings-list"
+        >
+          <h4>Hobbies</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a class="btn btn-primary" href="{% url 'add-hobby' user.id %}"
+            >Add Hobby</a
+          >
+        </div>
+        <div
+          class="tab-pane fade"
+          id="list-reference"
+          role="tabpanel"
+          aria-labelledby="list-settings-list"
+        >
+          <h4>Reference</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+            iste eos tempora. Eos non itaque, autem esse, quaerat facilis
+            corrupti, veritatis rem possimus vitae perspiciatis cupiditate
+            repellat dolore cumque nulla minima maxime delectus recusandae ipsam
+            quia ipsa eveniet. Labore veritatis, cum pariatur totam ea dolorem!
+            Sed eius et minus temporibus?
+          </p>
+          <a class="btn btn-primary" href="{% url 'add-reference' user.id %}"
+            >Add referees</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'copyfrom/footer.html' %} {% endblock %}
