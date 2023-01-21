@@ -1,0 +1,26 @@
+{% extends "inherit_from/main.html" %}{% load crispy_forms_tags %} <br />
+{% load static %} {% block content %}
+<title>New Opportunity</title>
+{% include 'copyfrom/navbar.html' %}
+<div class="container py-5">
+  <div class="row mt-5">
+    {% include "copyfrom/alert.html" %}
+    <div class="mx-auto" style="width: 600px">
+      <h4>New Working Opportunity</h4>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">{{form.Job_type|as_crispy_field}}</div>
+        <div class="row">{{form.job_title|as_crispy_field}}</div>
+        <div class="row">{{form.job_branch|as_crispy_field}}</div>
+        <div class="row">
+          <div class="col-lg-6">{{form.uploaded_on|as_crispy_field}}</div>
+          <div class="col-lg-6">{{form.deadline|as_crispy_field}}</div>
+        </div>
+        <div class="row">{{form.qualifications|as_crispy_field}}</div>
+        <div class="row">{{form.description|as_crispy_field}}</div>
+        <input type="submit" class="btn btn-success" value="Post Now" />
+      </form>
+    </div>
+  </div>
+</div>
+{% include 'copyfrom/footer.html' %} {% endblock %}

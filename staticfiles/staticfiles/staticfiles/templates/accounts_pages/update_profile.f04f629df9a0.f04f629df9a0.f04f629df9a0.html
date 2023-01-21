@@ -1,0 +1,29 @@
+{% extends 'inherit_from/main.html' %} {% load static %} {% block content %}
+<title>Complete Profile</title>
+{% load crispy_forms_tags %} {% include 'copyfrom/navbar.html' %}
+<div class="container py-5">
+  <div class="row mt-5">
+    <div class="mx-auto" style="width: 500px">
+      <h5>Update Profile</h5>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-6">{{form.surname|as_crispy_field}}</div>
+          <div class="col-lg-6">{{form.given_name|as_crispy_field}}</div>
+        </div>
+        <div class="row">{{form.profile_photo|as_crispy_field}}</div>
+        <div class="row">
+          <div class="col-lg-6">{{form.telephone_number|as_crispy_field}}</div>
+          <div class="col-lg-6">{{form.date_of_birth|as_crispy_field}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">{{form.physical_address|as_crispy_field}}</div>
+          <div class="col-lg-6">{{form.country|as_crispy_field}}</div>
+        </div>
+        <div class="row">{{form.about_me|as_crispy_field}}</div>
+        <button class="btn btn-success" type="submit">Complete Now</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% include "copyfrom/footer.html" %} {% endblock %}

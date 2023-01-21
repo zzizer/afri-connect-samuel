@@ -1,0 +1,16 @@
+{% extends 'inherit_from/main.html' %} {% load crispy_forms_tags %} <br />
+{% block content %} {% include 'copyfrom/navbar.html' %}
+<title>Choose what appears On CV</title>
+<div class="container py-5 mt-5">
+  <div class="row">
+    <a class="text-decoration-none" href="{% url 'CV-homepage' user.id %}"
+      >CV Home Page</a
+    >
+    <hr />
+    <form action="" method="post">
+      {% csrf_token %} {{form|crispy}}
+      <input class="btn btn-success" type="submit" value="Finish" />
+    </form>
+  </div>
+</div>
+{% include "copyfrom/footer.html" %} { {% endblock %}

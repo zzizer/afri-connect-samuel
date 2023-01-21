@@ -1,0 +1,207 @@
+{% extends 'inherit_from/main.html' %} {% block content %}
+<div class="container py-5">
+  <div class="row mt-5">
+    <h3 class="text-end mb-2">
+      <a
+        class="fs-6 text-decoration-none"
+        href="{% url 'CV-homepage' object.id %}"
+        >Back</a
+      >
+    </h3>
+    <h3 class="text-center mb-2">Curriculum Vitae</h3>
+    <!--Bio Data-->
+    <div class="row">
+      <div class="col-lg-6 mb-2">
+        <h3>Bio Data</h3>
+        <table class="table">
+          <tr>
+            <td>Name:</td>
+            <td>{{user.surname}} {{user.given_name}}</td>
+          </tr>
+          <tr>
+            <td>Date of Birth:</td>
+            <td>{{user.date_of_birth}}</td>
+          </tr>
+          <tr>
+            <td>Physical Address:</td>
+            <td>{{user.physical_address}}, {{user.country}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-6 mb-2 text-center">
+        <img
+          src="{{ user.imageURL }}"
+          class="w-25 rounded"
+          alt="User's Photo"
+        />
+      </div>
+    </div>
+    <!--Contact-->
+    <div class="row">
+      <div class="col-lg-6 mb-2">
+        <h3>Contact</h3>
+        <table class="table">
+          <tr>
+            <td>Email:</td>
+            <td>{{user.email}}</td>
+          </tr>
+          <tr>
+            <td>Contact:</td>
+            <td>{{user.telephone_number}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--Objective-->
+    <div class="row">
+      <div class="col-lg-12 mb-2">
+        <h3>Objective</h3>
+        {{object.objective}}
+      </div>
+    </div>
+    <!--Education-->
+    <div class="row mb-2">
+      <h3>Education Background</h3>
+      <table class="table">
+        <tr>
+          <th>Year From</th>
+          <th>Year To</th>
+          <th>Instution Name</th>
+          <th>Award/Certificate</th>
+        </tr>
+        {% for educ in object.education_background.all %}
+        <tr>
+          <td>{{educ.year_from}}</td>
+          <td>{{educ.year_to}}</td>
+          <td>{{educ.institution_name}}</td>
+          <td>{{educ.award}}</td>
+          <td><a href="#" class="text-decoration-none">Update</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <!--Skills-->
+    <div class="row">
+      <div class="col-lg-12 mb-2">
+        <h3>Skills</h3>
+        {% for skill in object.skills.all %}
+        <li>{{skill}}</li>
+        {% endfor %}
+      </div>
+    </div>
+    <!--Leadership Exp-->
+    <div class="row mb-2">
+      <h3>Leadership Experience</h3>
+      <table class="table">
+        <tr>
+          <th>Year From</th>
+          <th>Year To</th>
+          <th>Instution Name</th>
+          <th>Post/As</th>
+        </tr>
+        {% for leadership in object.leadership_skills.all %}
+        <tr>
+          <td>{{leadership.year_from}}</td>
+          <td>{{leadership.year_to}}</td>
+          <td>{{leadership.institution_name}}</td>
+          <td>{{leadership.post}}</td>
+          <td><a href="#" class="text-decoration-none">Update</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <!--Working Exp-->
+    <div class="row mb-2">
+      <h3>Working Experience</h3>
+      <table class="table">
+        <tr>
+          <th>Year From</th>
+          <th>Year To</th>
+          <th>Instution Name</th>
+          <th>Working As</th>
+        </tr>
+        {% for working_exp in object.working_experience.all %}
+        <tr>
+          <td>{{working_exp.year_from}}</td>
+          <td>{{working_exp.year_to}}</td>
+          <td>{{working_exp.institution_name}}</td>
+          <td>{{working_exp.post}}</td>
+          <td><a href="#" class="text-decoration-none">Update</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <!--Relevant Docs-->
+    <div class="row mb-2">
+      <h3>Relevant Documents</h3>
+      <table class="table">
+        <tr>
+          <th>Document Name</th>
+          <th>Issued By</th>
+          <th>ID NO/NIN</th>
+          <th>Expires On</th>
+        </tr>
+        {% for otherDocs in object.other_document.all %}
+        <tr>
+          <td>{{otherDocs.document_name}}</td>
+          <td>{{otherDocs.issued_by}}</td>
+          <td>{{otherDocs.NIN_or_Identifier_Number}}</td>
+          <td>{{otherDocs.expires_on}}</td>
+          <td><a href="#" class="text-decoration-none">Update</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <!--Hobbies-->
+    <div class="row mb-2">
+      <div class="col-lg-12">
+        <h3>Hobbies</h3>
+        {% for hobbies in object.hobby.all %}
+        <li>{{hobbies.hobby_name}}</li>
+        {% endfor %}
+      </div>
+    </div>
+    <!--Languages-->
+    <div class="row mb-2">
+      <div class="col-lg-6">
+        <h3>Language Spoken</h3>
+        <table class="table">
+          <tr>
+            <th>Langauge Name</th>
+            <th>Level of Proficiency</th>
+          </tr>
+          {% for language in object.language_spoken.all %}
+          <tr>
+            <td>{{language.language_name}}</td>
+            <td>{{language.level_of_proficiency}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <!--Reference-->
+    <div class="row mb-2">
+      <h3>Reference</h3>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Instution Name</th>
+          <th>Working As</th>
+          <th>Tel. No</th>
+          <th>Email</th>
+        </tr>
+        {% for ref in object.reference.all %}
+        <tr>
+          <td>{{ref.name_of_refere}}</td>
+          <td>{{ref.institution_name}}</td>
+          <td>{{ref.working_as}}</td>
+          <td>{{ref.phone_number}}</td>
+          <td>{{ref.email}}</td>
+          <td><a href="#" class="text-decoration-none">Update</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

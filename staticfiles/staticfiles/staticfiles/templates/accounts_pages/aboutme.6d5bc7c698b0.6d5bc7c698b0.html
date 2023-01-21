@@ -1,0 +1,169 @@
+{% extends 'inherit_from/main.html' %} {% load static %} {% block content %}
+<title>My Profile</title>
+
+{% include 'copyfrom/navbar.html' %}
+
+<style>
+  .profile_img {
+    transition: all 0.3s;
+  }
+  .profile_img:hover {
+    transform: scale(1.2);
+  }
+</style>
+
+<div class="container py-5">
+  <div class="row mt-5 mb-3">
+    <div class="col-lg-7">
+      {% if object.is_business %}
+      <h4 class="fs-2">
+        {{object.surname}}
+        <br />
+      </h4>
+      <h5>{{object.given_name}}</h5>
+      {% else %}
+      <h4>{{object.surname}} {{object.given_name}}</h4>
+      {% endif %}
+    </div>
+    <div class="col-lg-5">
+      <!--Form for Following and Unfollowing-->
+      <form action="{% url 'followers_count' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="user" value="{{current_user}}" readonly />
+        <input
+          type="hidden"
+          name="follower"
+          value="{{user.user_name}}"
+          readonly
+        />
+        {% if follow_button_value == 'follow' %}
+        <input type="hidden" name="value" value="follow" readonly />
+        <button type="submit" class="btn btn-success">
+          <i class="bi bi-person-fill-add"></i> Follow
+        </button>
+        {% else %}
+        <input type="hidden" name="value" value="unfollow" readonly />
+        <button type="submit" class="btn btn-success">
+          <i class="bi bi-person-fill-add"></i> UnFollow
+        </button>
+        {% endif %}
+        <a href="{% url 'myProfile' user.id %}" class="btn btn-secondary"
+          ><i class="bi bi-arrow-return-left"></i> My Profile(back)</a
+        >
+        <a href="{% url 'home' %}" class="btn btn-secondary"
+          ><i class="bi bi-arrow-return-left"></i> Home(back)</a
+        >
+      </form>
+      <!--Ends Here-->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <img
+        class="profile_img w-75 mb-3 rounded"
+        src="{{ object.imageURL }}"
+        alt="{{object.surname}}'s Logo"
+      />
+      <br />
+      <a href="#" class="btn btn-light"
+        >{{user_following}} <br />
+        Following</a
+      >
+      <a href="#" class="btn btn-light"
+        >{{user_followers}} <br />
+        Followers</a
+      >
+    </div>
+    <div class="col-lg-4 mt-2">
+      <div class="row">
+        <div class="col-lg-4"><h5>Email:</h5></div>
+        <div class="col-lg-8">
+          <a
+            class="text-decoration-none text-success"
+            href="mailto:{{object.email}}"
+            >{{object.email}}</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><h5>Is Verified:</h5></div>
+        <div class="col-lg-8">{{object.is_verified}}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><h5>Contact:</h5></div>
+        <div class="col-lg-8">
+          <a href="tel:+"></a>
+          <a
+            class="text-decoration-none text-dark"
+            href="tel:{{object.telephone_number}}"
+            >{{object.telephone_number}}</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><h5>Street Address:</h5></div>
+        <div class="col-lg-7">{{object.physical_address}}</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-lg-4"><h5>Country:</h5></div>
+        <div class="col-lg-8">{{object.country}}</div>
+      </div>
+      {% if object.is_business %}
+      <div class="row mt-2">
+        <div class="col lg-12">
+          <button class="btn btn-success">Download Licence</button>
+        </div>
+      </div>
+      {% else %}
+      <div class="row mt-2">
+        <div class="col lg-12">
+          <button class="btn btn-success">Download Cv</button>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-lg-5 mt-2">
+      <h4>About {{object.user_name}}</h4>
+      <div class="row">
+        <p>{{object.about_me}}</p>
+      </div>
+      <div class="row">
+        <h6>For More Information, Reach Us Via:</h6>
+        <div class="col-lg-1">
+          <a href="{{object.twitter}}" target="_blank"
+            ><i class="bi bi-twitter text-primary"></i
+          ></a>
+        </div>
+        <div class="col-lg-1">
+          <a href="{{object.facebook}}" target="_blank"
+            ><i class="bi bi-facebook text-primary"></i
+          ></a>
+        </div>
+        <div class="col-lg-1">
+          <a href="{{object.instagram}}" target="_blank"
+            ><i class="bi bi-instagram text-danger"></i
+          ></a>
+        </div>
+        <div class="col-lg-1">
+          <a href="{{object.you_tube}}" target="_blank"
+            ><i class="bi bi-youtube text-danger"></i
+          ></a>
+        </div>
+        <div class="col-lg-1">
+          <a href="{{object.linkedIn}}" target="_blank"
+            ><i class="bi bi-linkedin text-primary"></i
+          ></a>
+        </div>
+        <div class="col-lg-1">
+          <a href="{{object.git_hub}}" target="_blank"
+            ><i class="bi bi-github text-dark"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>
+
+{% include 'copyfrom/footer.html' %} {% endblock %}
