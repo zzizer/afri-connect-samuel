@@ -38,19 +38,19 @@
         />
         {% if follow_button_value == 'follow' %}
         <input type="hidden" name="value" value="follow" readonly />
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success mb-2">
           <i class="bi bi-person-fill-add"></i> Follow
         </button>
         {% else %}
         <input type="hidden" name="value" value="unfollow" readonly />
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success mb-2">
           <i class="bi bi-person-fill-add"></i> UnFollow
         </button>
         {% endif %}
-        <a href="{% url 'myProfile' user.id %}" class="btn btn-secondary"
+        <a href="{% url 'myProfile' user.id %}" class="btn btn-secondary mb-2"
           ><i class="bi bi-arrow-return-left"></i> My Profile(back)</a
         >
-        <a href="{% url 'home' %}" class="btn btn-secondary mt-2"
+        <a href="{% url 'home' %}" class="btn btn-secondary mb-2"
           ><i class="bi bi-arrow-return-left"></i> Home(back)</a
         >
       </form>
@@ -110,54 +110,44 @@
         <div class="col-lg-8">{{object.country}}</div>
       </div>
       {% if object.is_business %}
-      <div class="row mt-2">
+      <div class="row mb-2">
         <div class="col lg-12">
           <button class="btn btn-success">Download Licence</button>
         </div>
       </div>
       {% else %}
-      <div class="row mt-2">
+      <div class="row mb-2">
         <div class="col lg-12">
           <button class="btn btn-success">Download Cv</button>
         </div>
       </div>
       {% endif %}
     </div>
-    <div class="col-lg-5 mt-2">
+    <div class="col-lg-4 mx-lg-3 mt-2">
       <h4>About {{object.user_name}}</h4>
       <div class="row">
         <p>{{object.about_me}}</p>
       </div>
       <div class="row">
         <h6>For More Information, Reach Us Via:</h6>
-        <div class="col-lg-1 col-sm-2 col-md-1">
-          <a href="{{object.twitter}}" target="_blank"
+        <div class="col-12">
+          <a class="" href="{{object.twitter}}" target="_blank"
             ><i class="bi bi-twitter text-primary"></i
           ></a>
-        </div>
-        <div class="col-lg-1 col-sm-2 col-md-1">
-          <a href="{{object.facebook}}" target="_blank"
+          <a class="mx-3" href="{{object.facebook}}" target="_blank"
             ><i class="bi bi-facebook text-primary"></i
           ></a>
-        </div>
-        <div class="col-lg-1 col-sm-2 col-md-1">
-          <a href="{{object.instagram}}" target="_blank"
+          <a class="mx-3" href="{{object.instagram}}" target="_blank"
             ><i class="bi bi-instagram text-danger"></i
           ></a>
-        </div>
-        <div class="col-lg-1 col-sm-2 col-md-1">
-          <a href="{{object.you_tube}}" target="_blank"
+          <a class="mx-3" href="{{object.you_tube}}" target="_blank"
             ><i class="bi bi-youtube text-danger"></i
           ></a>
-        </div>
-        <div class="col-lg-1 col-sm-2 col-md-1">
-          <a href="{{object.linkedIn}}" target="_blank"
-            ><i class="bi bi-linkedin text-primary"></i
-          ></a>
-        </div>
-        <div class="col-lg-1 col-sm-2 col-md-1">
-          <a href="{{object.git_hub}}" target="_blank"
+          <a class="mx-3" href="{{object.git_hub}}" target="_blank"
             ><i class="bi bi-github text-dark"></i
+          ></a>
+          <a class="mx-3" href="{{object.linkedIn}}" target="_blank"
+            ><i class="bi bi-linkedin text-primary"></i
           ></a>
         </div>
       </div>
