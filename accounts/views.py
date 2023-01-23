@@ -27,7 +27,7 @@ class OpportunitiesListView(ListView):
     model = Opportunity
     paginate_by = 4
     template_name = "afri_apps_pages/index.html"
-    ordering = ['uploaded_on']
+    ordering = ['-uploaded_on']
 
 def createbusinessaccount(request):    
     if request.method == 'POST':
