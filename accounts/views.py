@@ -25,7 +25,7 @@ class PasswordsChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChang
 
 class OpportunitiesListView(ListView):
     model = Opportunity
-    paginate_by = 4
+    paginate_by = 3
     template_name = "afri_apps_pages/index.html"
     ordering = ['-uploaded_on']
 
