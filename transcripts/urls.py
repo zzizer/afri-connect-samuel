@@ -3,7 +3,7 @@ from .views import *
 from . import views
 
 urlpatterns = [
-    path('myCV-homepage/<str:pk>', CVHomePage.as_view(), name='CV-homepage'),
+    path('myCV-homepage/<str:pk>', views.CVHomePage, name='CV-homepage'),
     path('myCV/objective/<str:pk>', ObjectiveCreateView.as_view(), name='add-objective'),
     path('myCV/add-skills/<str:pk>', SkillsCreateView.as_view(), name='add-skills'),
     path('myCV/education-background/<str:pk>', EducationBackgroundCreateView.as_view(), name='add-education-background'),
@@ -17,4 +17,6 @@ urlpatterns = [
     path('myCV/update-cv/<str:pk>', ChooseCVUpdateView.as_view(), name='choose-cv'),
     #Preview
     path('myCV/preview/<str:pk>', ResumeDetailView.as_view(), name='preview-cv'),
+    #Reversed
+    path('reversed-saved', views.myReverse, name='my-reverse'),
 ]

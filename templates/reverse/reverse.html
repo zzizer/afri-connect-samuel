@@ -1,0 +1,31 @@
+{% extends "inherit_from/main.html" %} {% load static %} {% block content %}
+<br />
+{% include 'copyfrom/navbar.html' %}
+<title>End</title>
+<div class="mx-auto mt-5 py-5 text-center" style="width: 500px">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Database Updated</h1>
+      <h6>Return</h6>
+      |
+      <a class="text-decoration-none" href="{% url 'myProfile' user.id %}"
+        >Profile</a
+      >
+      |
+      <a class="text-decoration-none" href="{% url 'CV-homepage' user.id %}"
+        >CV-Home</a
+      >
+      |
+      <a class="text-decoration-none" href="{% url 'choose-cv' user.id %}"
+        >Edit CV</a
+      >
+      |
+      <a class="text-decoration-none" href="{% url 'preview-cv' user.id %}"
+        >Preview CV</a
+      >
+      | <a class="text-decoration-none" href="/">Home</a> |
+      <hr />
+    </div>
+  </div>
+</div>
+{% include "copyfrom/footer.html" %} {% endblock %}

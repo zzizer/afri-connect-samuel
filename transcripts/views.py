@@ -13,7 +13,7 @@ from accounts.models import NewUser
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, TemplateView
-
+from django.contrib.auth.decorators import login_required
 class ChooseCVUpdateView(UpdateView):
     model = NewUser
     template_name = 'cv/choose.html'
@@ -22,17 +22,20 @@ class ChooseCVUpdateView(UpdateView):
         'working_experience','other_document', 'hobby', 'language_spoken', 'reference'
     ]
 
+@login_required(login_url='signin')
+def myReverse(request):
+    return render(request, "reverse/reverse.html")
 class ResumeDetailView(DetailView):
     model = NewUser
     template_name = 'cv/preview-cv.html'
 
-class CVHomePage(LoginRequiredMixin, DetailView):
-    model = NewUser
-    template_name = 'cv/CV-index.html'
-
-    login_url = 'signin'
-    redirect_field_name = 'CV-homepage'
-
+@login_required(login_url='signin')
+def CVHomePage(request, pk):
+    object = NewUser.objects.get(id=pk)
+    context = {
+        "object":object
+    }
+    return render(request, 'cv/CV-index.html', context)
 class HobbiesCreateView(CreateView):
     model = Hobbies
     form_class = HobbiesForm

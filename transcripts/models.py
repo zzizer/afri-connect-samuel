@@ -3,13 +3,11 @@ from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.urls import reverse
-
 class Objective(models.Model):
     objective_statement = models.TextField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
-    
+        return reverse("my-reverse")
     class Meta:
         verbose_name  = 'Objective'
 
@@ -24,7 +22,7 @@ class References(models.Model):
     working_as = models.CharField(max_length=50)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
 
     def __str__(self):
         return self.name_of_refere
@@ -36,7 +34,7 @@ class Hobbies(models.Model):
     hobby_name = models.CharField(max_length=50)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
 
     class Meta:
         verbose_name  = 'Hobbie'
@@ -53,7 +51,7 @@ class LanguagesSpoken(models.Model):
     level_of_proficiency = models.CharField(choices=levels, max_length=250)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
     
     class Meta:
         verbose_name  = 'Language'
@@ -70,7 +68,7 @@ class Skills(models.Model):
     level_of_proficiency = models.CharField(choices=levels, max_length=250)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
     
     class Meta:
         verbose_name  = 'Skill'
@@ -86,7 +84,7 @@ class AcademicDocument(models.Model):
     copy_of_document = models.FileField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
 
     def __str__(self):
         return self.institution_name
@@ -99,7 +97,7 @@ class LeadershipSkills(models.Model):
     certificate = models.FileField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
 
     def __str__(self):
         return self.institution_name
@@ -112,7 +110,7 @@ class WorkingExperience(models.Model):
     certificate = models.FileField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})
+        return reverse("my-reverse")
 
     def __str__(self):
         return self.institution_name
@@ -125,7 +123,7 @@ class OtherDocument(models.Model):
     expires_on = models.DateField(auto_now_add=False, blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("CV-homepage", kwargs={'pk':self.pk})   
+        return reverse("my-reverse")   
 
     def __str__(self):
         return self.document_name
