@@ -29,8 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-
-    'accounts',
+    
+    'accounts.apps.AccountsConfig',
+    # 'accounts',
     'africonnect',
     'phonenumber_field',
     'django_countries',
@@ -141,7 +142,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'africonnect.uganda301@gmail.com'
-EMAIL_HOST_PASSWORD = 'dpkroxlbiuhqqpwt' 
+EMAIL_HOST_PASSWORD = 'gavlykkuidcvjjwf' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

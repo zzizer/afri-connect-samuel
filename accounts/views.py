@@ -50,19 +50,7 @@ def createbusinessaccount(request):
 
             myUser.is_business = True
             myUser.is_active = True
-            """
-            template = render_to_string("accounts_pages/welcome.html", {'surname':surname})
             
-            welcome_email = EmailMessage(
-                'Welcome to Africonnect Uganda LTD',
-                template,
-                settings.EMAIL_HOST_USER,
-                [email],
-            )
-
-            welcome_email.fail_silently = True
-            welcome_email.send()
-            """
             myUser.save()
             messages.info(request, "Business account created Successfully...!")
 
