@@ -91,6 +91,7 @@ DATABASES = {
         'NAME': 'africonnect',
         'USER': 'africonnect',
         'PASSWORD': 'abc123ABC.',
+        'PORT': '5432',
     }
 }
 
