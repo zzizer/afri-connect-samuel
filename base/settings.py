@@ -78,12 +78,22 @@ WSGI_APPLICATION = 'base.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'africonnect',
+        'USER': 'africonnect',
+        'PASSWORD': 'abc123ABC.',
     }
 }
+
 
 
 # Password validation
@@ -141,8 +151,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'africonnectugltd301@gmail.com'
-EMAIL_HOST_PASSWORD = 'tzfjvagdhcuerqxu' 
+EMAIL_HOST_USER = 'afri.connectugandaltd301@gmail.com'
+EMAIL_HOST_PASSWORD = 'qfbwranophnkdwbt' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
